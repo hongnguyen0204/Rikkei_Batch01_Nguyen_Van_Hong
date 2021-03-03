@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="Script/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="mainnav">
+        <div class="wrapper">
+            <ul class="menu clearfix">
+                <li>
+                    <a onclick="" href="#">
+                        Menu
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a onclick="hienthi()" href="#">
+                                Add Name Customer
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="Edit();" href="#">
+                                Delete Customer
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-inline">
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" onchange="xoakitu(this.value)" id="name">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputPassword1">ID Number</label>
+                <input type="text" class="form-control" onchange="IsValidCMND($('#id').val())" id="id">
+                <p id="lbms1" style=" position:relative;padding:8px;display:none"></p>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Date of Birth</label>
+                <input type="datetime" class="form-control" id="date">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputPassword1">Email</label>  
+                <input type="email" class="form-control" onchange="validateEmail()" id="email">
+                <p id="lbms2" style=" position:relative;padding:8px;display:none"></p>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Adress</label>
+                <input type="text" class="form-control" id="adress">
+            </div>
+            <div>
+                <select class="custom-select" id="select">
+                    <option >Type of Customer</option>
+                    <option value="Diamond">Diamond</option>
+                    <option value="Platinum">Platinum</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Member">Member</option>
+                </select>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">DisCount</label>
+                <input type="text" class="form-control" id="discount">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Quality Include</label>
+                <input type="number" min="0" class="form-control" onchange="kt1(this.value)" id="include">
+                <p id="lbms3" style=" position:relative;padding:8px;display:none"></p>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Rentals Day</label>
+                <input type="number" min="0" class="form-control" onchange="kt2(this.value)" id="rental">
+                <p id="lbms4" style=" position:relative;padding:8px;display:none"></p>
+            </div>
+                <div class="checkbox">
+                    <label for="exampleInputEmail1">Service</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="customRadio1" value="Villa" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio1">Villa</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="customRadio1" value="House" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio2">House</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio3" name="customRadio1" value="Room" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio3">Room</label>
+                </div>
+                </div>
+            
+            <div class="checkbox">
+                <label for="exampleInputEmail1">Room</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio4" name="customRadio2" value="Vip" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio4">Vip</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio5" name="customRadio2" value="Bussiness" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio5">Bussiness</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio6" name="customRadio2" value="Normal" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio6">Normal</label>
+                </div>
+            </div>
+    </div>
+    <a style="display:block" id="Edit" type="submit" onclick="" style="margin-bottom: 20px;" class="btn btn-primary">Submit</a>
+    </div>
+</body>
+</html>
+<script>
+    function validateEmail() {
+        var email =$('#email').val();
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+     if(re.test(String(email).toLowerCase())==false){
+        $('#lbms2').css('color', 'red');
+        $('#lbms2').css('display', 'block');
+        $('#lbms2').html('Sai định dạng email!');
+    } else{
+        $('#lbms').css('display', 'none');
+    }
+    
+}
+    function IsValidCMND(value) {
+        console.log(isNaN(value));
+        if(isNaN(value)==true || value.length!=10 || parseInt(value)<0) {
+            $('#lbms1').html('Sai định dạng');
+            $('#lbms1').css('color', 'red');
+            $('#lbms1').css('display', 'block');
+        } else{
+            $('#lbms').css('display', 'none');
+        }
+    }
+    function kt1(value){
+        if(parseInt(value)<0){
+            $('#lbms3').html('Không được là số âm');
+            $('#lbms3').css('color', 'red');
+            $('#lbms3').css('display', 'block');
+        } else{
+            $('#lbms3').css('display', 'none');
+        }
+    }
+    function kt2(value){
+        if(parseInt(value)<0){
+            $('#lbms4').html('Không được là số âm');
+            $('#lbms4').css('color', 'red');
+            $('#lbms4').css('display', 'block');
+        } else{
+            $('#lbms4').css('display', 'none');
+        }
+    }
+    
+   
+
+</script>
+<style>
+    .checkbox {
+        margin: 0px 30px 10px 30px;
+    }
+
+    .container .checkbox label {
+        padding: 0;
+    }
+
+    .container label {
+        padding: 10px 20px 10px 20px;
+    }
+
+    .container input {
+        width: 100px;
+    }
+
+    .main {
+        position: relative;
+        margin-left: 200px;
+    }
+
+    .container {
+        margin-top: 30px;
+
+    }
+
+    .custom-select {
+        position: relative;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    #mainnav{
+background-image: url(img/menubg.png);
+}
+
+#mainnav .menu {
+    text-align: justify;
+    height: 40px;
+    line-height: 40px;
+}
+a{
+    text-decoration:no underline;
+}
+ul, li {
+    list-style: none;
+}
+#mainnav .menu>li {
+    position: relative;
+    width: 250px;
+    float: left;
+}
+#mainnav .menu>li>a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    
+}
+#mainnav .menu>li:hover{
+    background:#033801;
+}
+
+
+#mainnav .submenu {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 3px rgb(0 0 0 / 60%);
+    display: none; 
+    left: 0;
+    position: absolute;
+    top: 40px;
+    z-index: 9999;
+    width: 250px;
+}
+#mainnav .menu>li:hover .submenu {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 3px rgb(0 0 0 / 60%);
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    z-index: 9999;
+    width: 250px;
+}
+
+#mainnav .submenu>li>a  {
+    background: none repeat scroll 0 0 #033801;
+    color: #fff;
+    display: block;
+    margin-top: 1px;
+    padding: 0;
+    text-transform: uppercase;
+    font-size:12px;
+    text-align: center;
+}
+
+#mainnav .submenu2 {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 8px rgb(0 0 0 / 60%);
+    display: none; 
+    left: 250px;
+    position: absolute;
+    top: -1px;
+    z-index: 9999;
+    width: 250px;
+}
+#mainnav .submenu>li:hover .submenu2 {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 8px rgb(0 0 0 / 60%);
+    display: block;
+    left: 250px;
+    position: absolute;
+    top: -1px;
+    z-index: 9999;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+}
+#mainnav .submenu2>li>a {
+    background: none repeat scroll 0 0 #033801;
+    color: #fff;
+    display: block;
+    line-height: 28px;
+    margin-top: 1px;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+#mainnav .submenu2>li:first-child a {
+    margin-top: 0;
+    padding-top: 1px;
+}
+</style>

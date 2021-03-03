@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="Script/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- <div class="main">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" id="yeucau" style="cursor:pointer" onclick="loi()">Yeu cau 2</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Menu
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" onclick="hienthi()">Show Information Customer</a>
+                            <a class="dropdown-item" onclick="tinhTien()">Show the amount to be paid after discount</a>
+                            <a class="dropdown-item dropdown-toggle" onclick="Edit();" id="navbarDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Edit Information Customer
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" onclick="$('#name').val(person.name)">Name</a>
+                                <a class="dropdown-item" onclick="$('#id').val(person.idNumber)">ID Number</a>
+                                <a class="dropdown-item" onclick="$('#date').val(person.dateOfBirth)">Date of Birth</a>
+                                <a class="dropdown-item" onclick="$('#email').val(person.email)">Email</a>
+                                <a class="dropdown-item" onclick="$('#adress').val(person.adress)">Adress</a>
+                                <a class="dropdown-item" onclick="$('#discount').val(person.discount)">DisCount</a>
+                                <a class="dropdown-item" onclick="$('#rental').val(person.rental)">Rentals Day</a>
+                                <a class="dropdown-item" onclick="$('#include').val(person.qualityInclude)">Quality Include</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> -->
+    <div id="mainnav">
+        <div class="wrapper">
+            <ul class="menu clearfix">
+                <li>
+                    <a onclick="loi()" href="#">
+                        Menu
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a onclick="hienthi()" href="#">
+                                Show Information Customer
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="Edit();" href="#">
+                                Edit Information Customer
+                            </a>
+                            <ul class="submenu2">
+                                <li>
+                                    <a onclick="$('#name').val(person.name);$('#Edit').css('display', 'block');" href="#">Name
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#id').val(person.idNumber);$('#Edit').css('display', 'block');" href="#">ID Number
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#date').val(person.dateOfBirth);$('#Edit').css('display', 'block');" href="#">Date of Birth
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#email').val(person.email);$('#Edit').css('display', 'block');" href="#">Email
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#adress').val(person.adress);$('#Edit').css('display', 'block');" href="#">Adress
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#discount').val(person.discount);$('#Edit').css('display', 'block');" href="#">DisCount
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#rental').val(person.rental);$('#Edit').css('display', 'block');" href="#">Rentals Day</a>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#include').val(person.qualityInclude);$('#Edit').css('display', 'block');" href="#">Quality Include
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('input[name=customRadio1][value='+person.service+']').prop('checked', true);$('#Edit').css('display', 'block');" href="#">
+                                        Service
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('input[name=customRadio2][value='+person.room+']').prop('checked', true);$('#Edit').css('display', 'block');" href="#">
+                                        Room
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="$('#select [value='+person.customer+']').prop('selected', true);$('#Edit').css('display', 'block');" href="#">
+                                        Customer
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a onclick="tinhTien()" href="#">
+                                Show the amount to be paid after discount
+                            </a>
+                    </ul>
+                </li>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-inline">
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputPassword1">ID Number</label>
+                <input type="number" class="form-control" id="id">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Date of Birth</label>
+                <input type="datetime" class="form-control" id="date">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputPassword1">Email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Adress</label>
+                <input type="text" class="form-control" id="adress">
+            </div>
+            <div>
+                <select class="custom-select" id="select">
+                    <option >Type of Customer</option>
+                    <option value="Diamond">Diamond</option>
+                    <option value="Platinum">Platinum</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Member">Member</option>
+                </select>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">DisCount</label>
+                <input type="text" class="form-control" id="discount">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Quality Include</label>
+                <input type="number" min="0" class="form-control" id="include">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="exampleInputEmail1">Rentals Day</label>
+                <input type="number" min="0" class="form-control" id="rental">
+            </div>
+                <div class="checkbox">
+                    <label for="exampleInputEmail1">Service</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="customRadio1" value="Villa" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio1">Villa</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="customRadio1" value="House" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio2">House</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio3" name="customRadio1" value="Room" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio3">Room</label>
+                </div>
+                </div>
+            
+            <div class="checkbox">
+                <label for="exampleInputEmail1">Room</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio4" name="customRadio2" value="Vip" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio4">Vip</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio5" name="customRadio2" value="Bussiness" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio5">Bussiness</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio6" name="customRadio2" value="Normal" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio6">Normal</label>
+                </div>
+            </div>
+    </div>
+    <a style="display:none" id="Edit" type="submit" onclick="Sua()" style="margin-bottom: 20px;" class="btn btn-primary">Sửa</a>
+    </div>
+</body>
+</html>
+<script>
+    var person = {
+        name: "Hậu",
+        idNumber: 201776551,
+        dateOfBirth: "14 / 03 / 1999",
+        email: "haunguyen140399@gmail.com",
+        adress: "Đà Nẵng",
+        customer: "Platinum",
+        discount: 50,
+        qualityInclude: 4,
+        rentalsDay: 20,
+        service:"Villa",
+        room:"Vip"
+    };
+
+    function loi() {
+        alert("Bạn hãy chọn các chức năng có trong menu");
+    }
+    function hienthi() {
+        $('#name').val(person.name);
+        $('#id').val(person.idNumber);
+        $('#email').val(person.email);
+        $('#adress').val(person.adress);
+        $('#discount').val(person.discount);
+        $('#rental').val(person.rentalsDay);
+        $('#include').val(person.qualityInclude);
+        $('#date').val(person.dateOfBirth);
+        //var customer=$('input:radio[name=customRadio1]');
+        //console.log($('#select :selected').text());
+        $('input[name=customRadio1][value='+person.service+']').prop("checked", true);
+        $('input[name=customRadio2][value='+person.room+']').prop("checked", true);
+        $('#select [value='+person.customer+']').prop("selected", true);
+        $('#Edit').css('display', 'none');
+    }
+    function Edit() {
+        $('#name').val(person.name);
+        $('#id').val(person.idNumber);
+        $('#email').val(person.email);
+        $('#adress').val(person.adress);
+        $('#discount').val(person.discount);
+        $('#rental').val(person.rentalsDay);
+        $('#include').val(person.qualityInclude);
+        $('#date').val(person.dateOfBirth);
+        $('input[name=customRadio1][value='+person.service+']').prop("checked", true);
+        $('input[name=customRadio2][value='+person.room+']').prop("checked", true);
+        $('#select [value='+person.customer+']').prop("selected", true);
+        $('#Edit').css('display', 'block');
+    }
+    function Sua(){
+        if($('#name').val()!=''){
+            person.name= $('#name').val();
+        }
+        if($('#id').val()!=''){
+            person.idNumber= $('#id').val();
+        }
+        if($('#email').val()!=''){
+            person.email= $('#email').val();
+        }
+        if($('#adress').val()!=''){
+            person.adress= $('#adress').val();
+        }
+        if($('#discount').val()!=''){
+            person.discount= $('#discount').val();
+        }
+        if($('#rental').val()!=''){
+            person.rental= $('#rental').val();
+        }
+        if($('#include').val()!=''){
+            person.include= $('#include').val();
+        }
+        if($('#date').val()!=''){
+            person.dateOfBirth= $('#date').val();
+        }
+        if($('input:radio[name=customRadio1]:checked').length!=0){
+            person.service= $('input:radio[name=customRadio1]:checked').val();
+        }
+        if($('input:radio[name=customRadio2]:checked').length!=0){
+            person.room=$('input:radio[name=customRadio2]:checked').val();
+        }
+        if($('#select :selected').length!=0){
+            person.customer=$('#select :selected').text();
+        }
+        hienthi();
+    }
+function tinhTien(){
+    var giaDichVu=0,diachi=0,thoigian=0,customer=0;
+    //Giảm giá theo loại dịch vụ
+    if(person.service=='villa'){
+        giaDichVu=500;
+    } else if(person.service=='house'){
+        giaDichVu=300;
+    } else{
+        giaDichVu=100;
+    }
+    //Giảm giá theo địa chỉ
+    if(person.adress=='Đà Nẵng'){
+        diachi=20;
+    } else if(person.adress=='Huế'){
+        diachi=10;
+    } else if(person.adress=='Quảng Nam'){
+        diachi=5;
+    } else {
+        diachi=0;
+    }
+    //Giảm giá theo thời gian lưu trú
+    if(person.rentalsDay>=2 && person.rentalsDay<=4){
+        thoigian=10;
+    } else if(person.rentalsDay>=5 && person.rentalsDay<=7){
+        thoigian=20;
+    } if(person.rentalsDay>7){
+        thoigian=30;
+    } else {
+        thoigian=0;
+    }
+    //Mức giá theo loại customer
+    switch(person.customer){
+        case 'Diamond':
+            customer=15;
+            break;
+        case 'Platinum':
+            customer=10;
+            break;
+        case 'Gold':
+            customer=5;
+            break;
+        case 'Silver':
+            customer=2;
+            break;
+        case 'Member':
+            customer=0;
+            break;
+    }
+    var giamgia=diachi+thoigian+customer;
+    var sotientra=person.rentalsDay*giaDichVu-giamgia;
+    alert("Tổng tiền phải trả là: "+sotientra);
+
+}
+</script>
+<style>
+    .checkbox {
+        margin: 0px 30px 10px 30px;
+    }
+
+    .container .checkbox label {
+        padding: 0;
+    }
+
+    .container label {
+        padding: 10px 20px 10px 20px;
+    }
+
+    .container input {
+        width: 100px;
+    }
+
+    .main {
+        position: relative;
+        margin-left: 200px;
+    }
+
+    .container {
+        margin-top: 30px;
+
+    }
+
+    .custom-select {
+        position: relative;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    #mainnav{
+background-image: url(img/menubg.png);
+}
+
+#mainnav .menu {
+    text-align: justify;
+    height: 40px;
+    line-height: 40px;
+}
+a{
+    text-decoration:no underline;
+}
+ul, li {
+    list-style: none;
+}
+#mainnav .menu>li {
+    position: relative;
+    width: 250px;
+    float: left;
+}
+#mainnav .menu>li>a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    
+}
+#mainnav .menu>li:hover{
+    background:#033801;
+}
+
+
+#mainnav .submenu {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 3px rgb(0 0 0 / 60%);
+    display: none; 
+    left: 0;
+    position: absolute;
+    top: 40px;
+    z-index: 9999;
+    width: 250px;
+}
+#mainnav .menu>li:hover .submenu {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 3px rgb(0 0 0 / 60%);
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    z-index: 9999;
+    width: 250px;
+}
+
+#mainnav .submenu>li>a  {
+    background: none repeat scroll 0 0 #033801;
+    color: #fff;
+    display: block;
+    margin-top: 1px;
+    padding: 0;
+    text-transform: uppercase;
+    font-size:12px;
+    text-align: center;
+}
+
+#mainnav .submenu2 {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 8px rgb(0 0 0 / 60%);
+    display: none; 
+    left: 250px;
+    position: absolute;
+    top: -1px;
+    z-index: 9999;
+    width: 250px;
+}
+#mainnav .submenu>li:hover .submenu2 {
+    background: url(img/menubg.png);
+    box-shadow: 2px 4px 8px rgb(0 0 0 / 60%);
+    display: block;
+    left: 250px;
+    position: absolute;
+    top: -1px;
+    z-index: 9999;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+}
+#mainnav .submenu2>li>a {
+    background: none repeat scroll 0 0 #033801;
+    color: #fff;
+    display: block;
+    line-height: 28px;
+    margin-top: 1px;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+#mainnav .submenu2>li:first-child a {
+    margin-top: 0;
+    padding-top: 1px;
+}
+</style>

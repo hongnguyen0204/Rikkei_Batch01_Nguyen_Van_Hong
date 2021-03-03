@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+    <script>
+        var villa=500;
+        var house=300;
+        var room=100;
+        var name=prompt("Nhập vào tên");
+        var iDNumber=prompt("Nhập vào số CMND");
+        var dateOfBirth=prompt("Nhập vào ngày tháng năm sinh");
+        var email=prompt("Nhập vào email");
+        var adress=prompt("Nhập vào địa chỉ");
+        var customer=prompt("Nhập vào loại khách hàng");
+        var discount=prompt("Nhập vào giảm giá");
+        var qualityInclude=prompt("Nhập vào số lượng đi kèm");
+        var rentalsDay=prompt("Nhập vào số ngày thuê");
+        var service=prompt("Nhập vào dịch vụ");
+        var room=prompt("Nhập vào loại phòng thuê");
+        document.write('<p>Tên: '+name+'</p>');
+        document.write('<p>Số CMND: '+iDNumber+'</p>');
+        document.write('<p>Ngày sinh: '+dateOfBirth+'</p>');
+        document.write('<p>Email: '+email+'</p>');
+        document.write('<p>Địa chỉ: '+adress+'</p>');
+        document.write('<p>Loại khách hàng: '+customer+'</p>');
+        document.write('<p>Giảm giá: '+discount+'</p>');
+        document.write('<p>Số lượng đi kèm: '+qualityInclude+'</p>');
+        document.write('<p>Ngày thuê: '+rentalsDay+'</p>');
+        document.write('<p>Loại dịch vụ: '+service+'</p>');
+        document.write('<p>Phòng: '+room+'</p>');
+        var money=0;
+        if(service=="villa"){
+            money=villa*rentalsDay*(1-discount/100);
+        } else if(service="house"){
+            money=house*rentalsDay*(1-discount/100);
+        } else if(service="room"){
+            money=room*rentalsDay*(1-discount/100);
+        } else {
+            alert("Loại dịch vụ sai");
+        }
+        document.write('<p>Tiền phải trả: '+money+'</p>')
+    </script>
+    </body>
+</html>

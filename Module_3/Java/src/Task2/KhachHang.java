@@ -31,7 +31,7 @@ public class KhachHang {
 
     @Override
     public String toString() {
-        return "KhachHang:" +
+        return
                 "maKh='" + maKh + '\'' +
                 "; hoTen='" + hoTen + '\'' +
                 "; soDienThoai='" + soDienThoai + '\'' +

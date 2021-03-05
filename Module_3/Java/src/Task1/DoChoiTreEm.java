@@ -14,7 +14,7 @@ public class DoChoiTreEm extends SanPham {
 
     @Override
     public String toString() {
-        return "DoChoiTreEm:" +
+        return
                 "xuatXu='" + xuatXu + '\'' +
                 "; thuongHieu='" + thuongHieu + '\'' +
                 "; nhaCungCap='" + nhaCungCap + '\'' +

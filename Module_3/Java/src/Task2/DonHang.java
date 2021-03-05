@@ -18,7 +18,7 @@ public class DonHang {
 
     @Override
     public String toString() {
-        return "DonHang:" +
+        return
                 "maHoaDon='" + maHoaDon + '\'' +
                 "; maKhachHang='" + maKhachHang + '\'' +
                 "; maSanPham='" + maSanPham + '\'' +

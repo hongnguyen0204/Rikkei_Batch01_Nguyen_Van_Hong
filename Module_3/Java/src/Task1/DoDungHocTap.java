@@ -15,7 +15,7 @@ public class DoDungHocTap extends SanPham {
 
     @Override
     public String toString() {
-        return "DoDungHocTap:" +
+        return
                 "xuatXu='" + xuatXu + '\'' +
                 "; thuongHieu='" + thuongHieu + '\'' +
                 "; nhaCungCap='" + nhaCungCap + '\'' +

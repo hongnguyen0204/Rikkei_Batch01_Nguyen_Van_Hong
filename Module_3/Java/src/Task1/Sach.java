@@ -17,8 +17,8 @@ public class Sach extends SanPham {
 
     @Override
     public String toString() {
-        return "Sach: " +
-                "; maSP='" + maSP + '\'' +
+        return
+                " maSP='" + maSP + '\'' +
                 "; tenSP='" + tenSP + '\'' +
                 "; soLuong=" + soLuong +
                 "; donGia=" + donGia +

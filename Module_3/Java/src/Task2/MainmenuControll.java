@@ -131,11 +131,15 @@ public class MainmenuControll {
         System.out.println("=====Danh sach Do Choi Tre Em=====");
         System.out.println(file.readFile(file_name2));
     }
+    public void HienThiDanhSachDonHang(){
+        System.out.println("=====Danh sach Don Hang=====");
+        System.out.println(file.readFile(file_name3));
+    }
 
     public ArrayList<SanPham> TimKiemSP(ArrayList<SanPham> list,String maSp){
         ArrayList<SanPham> l=new ArrayList<>();
         for(SanPham item:list){
-           if(list.contains(item))
+           if(maSp.contains(item.getMaSP()))
                l.add(item);
         }
         return l;
@@ -144,7 +148,7 @@ public class MainmenuControll {
     public ArrayList<DonHang> TimKiemDH(ArrayList<DonHang> list,String maKhachHang){
         ArrayList<DonHang> l=new ArrayList<>();
         for(DonHang item:list){
-            if(list.contains(item))
+            if(maKhachHang.contains(item.getMaKhachHang()))
                 l.add(item);
         }
         return l;

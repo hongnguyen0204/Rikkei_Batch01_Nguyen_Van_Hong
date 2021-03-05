@@ -40,14 +40,19 @@ public class Main {
                     mn.ThemDonHang();
                     break;
                 case 5:
+                    mn.HienThiSach();
                     break;
                 case 6:
+                    mn.HienThiDoDungHocTap();
                     break;
                 case 7:
+                    mn.HienThiDoChoiTreEm();
                     break;
                 case 8:
+                    mn.HienThi();
                     break;
                 case 9:
+                    mn.HienThiDanhSachDonHang();
                     break;
                 case 10:
                     break;

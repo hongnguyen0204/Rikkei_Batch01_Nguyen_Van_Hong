@@ -126,16 +126,16 @@ select * from quanlysach.sanphamdochoi where (donGia<1000000 and soLuong>20);
 select * from quanlysach.sanphamdungcu where (donGia<1000000 and soLuong>20);
 
 /*3--Khach hang co do tuoi > 16  va <30 dia chi DN hoac nhung khach hang co tuoi >40 va dia chi o QN*/
-select * from quanlysach.khachhang as a where round(datediff(now(),a.ngaySinh)/365) between 16 and 40 and ROUND(DATEDIFF(now() , a.NgaySinh)/365) = 40;
+select * from quanlysach.khachhang as a where round(datediff(now(),a.ngaySinh)/365) between 16 and 40 or ROUND(DATEDIFF(now() , a.NgaySinh)/365) = 40;
 /*4--San pham mua trong nam 2020*/
 select * from quanlysach.sanphamsach where maDMSach=(
-select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang)); 
+select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang) and year(a.ngayMuaHang)=2020); 
 
 select * from quanlysach.sanphamdungcu where maDMDungCu=(
-select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang)); 
+select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang) and year(a.ngayMuaHang)=2020); 
 
 select * from quanlysach.sanphamdochoi where maDMDoChoi=(
-select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang)); 
+select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang) and year(a.ngayMuaHang)=2020); 
 
 #5--Hiển thị thông tin tương ứng mỗi Khách hàng đã mua bao nhiêu sản phẩm trong Quý 4 của năm 2020.
 select * from quanlysach.khachhang where maKhachHang=(

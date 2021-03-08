@@ -1,5 +1,5 @@
-create database if not exists NhaSach;
-use NhaSach;
+create database if not exists quanlysach;
+use quanlysach;
 create table IF NOT EXISTS DMSach(
 maDMSach int,
 theloai varchar(100),
@@ -120,19 +120,33 @@ CONSTRAINT fk_dochoi foreign key (maSanPham) references SanPhamDoChoi(maSPDoChoi
 CONSTRAINT fk_dungcu foreign key (maSanPham) references SanPhamDungCu(maSPDungCu)
 );
 
-/*Hien thi thong tin san pham co so luong >20 va  don gia <1000000*/ 
-select * from sanphamsach where (donGia<1000000 and soLuong>20);
-select * from sanphamdungcu where (donGia<1000000 and soLuong>20);
-select * from sanphamdochoi where (donGia<1000000 and soLuong>20);
-/*Khach hang co do tuoi > 16  va <30 dia chi DN hoac nhung khach hang co tuoi >40 va dia chi o QN*/
-select * from khachhang where round(datediff(now())/365) between 16 and 40;
-/*San pham mua trong nam 2020*/
+/*2--Hien thi thong tin san pham co so luong >20 va  don gia <1000000*/ 
+select * from quanlysach.sanphamsach where (donGia<1000000 and soLuong>20);
+select * from quanlysach.sanphamdochoi where (donGia<1000000 and soLuong>20);
+select * from quanlysach.sanphamdungcu where (donGia<1000000 and soLuong>20);
 
+/*3--Khach hang co do tuoi > 16  va <30 dia chi DN hoac nhung khach hang co tuoi >40 va dia chi o QN*/
+select * from quanlysach.khachhang as a where round(datediff(now(),a.ngaySinh)/365) between 16 and 40 and ROUND(DATEDIFF(now() , a.NgaySinh)/365) = 40;
+/*4--San pham mua trong nam 2020*/
+select * from quanlysach.sanphamsach where maDMSach=(
+select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang)); 
 
+select * from quanlysach.sanphamdungcu where maDMDungCu=(
+select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang)); 
 
+select * from quanlysach.sanphamdochoi where maDMDoChoi=(
+select maSanPham from quanlysach.donhang as a,quanlysach.chitietdonhang as b where (a.maDonHang=b.maDonHang)); 
 
+#5--Hiển thị thông tin tương ứng mỗi Khách hàng đã mua bao nhiêu sản phẩm trong Quý 4 của năm 2020.
+select * from quanlysach.khachhang where maKhachHang=(
+select maKhachHang from quanlysach.donhang where maDonHang=(
+select maDonHang from quanlysach.donhang as c where quarter(c.ngayMuaHang)=4));
 
+#6--Hiển thị thông tin của những Khách hàng có tên bắt đầu là các ký tự ‘K’, ‘H’ hoặc ‘T’ và có độ dài tối thiểu 15 ký tự.
+select * from quanlysach.khachhang where (tenKhachHang like 'K%' or tenKhachHang like 'H%' or tenKhachHang like 'T%') and length(tenKhachHang)>=15;
 
+#8--Hiển thị thông tin Tên khách hàng có trong hệ thống, với yêu cầu Tên khách hàng không trùng nhau.
+select distinct * from quanlysach.khachhang;
 
 
 

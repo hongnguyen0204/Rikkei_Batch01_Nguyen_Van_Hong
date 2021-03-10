@@ -10,7 +10,6 @@ import java.util.Date;
     public class DBKhachHang {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
@@ -26,12 +25,12 @@ import java.util.Date;
     private Date ngaySinh;
 
     @Column(name = "type")
-    private String maLoai;
+    private int maLoai;
 
     @Column(name = "adress")
     private String diaChi;
 
-    public DBKhachHang(int id, String tenKhachHang, String soDienThoai, String email, Date ngaySinh, String maLoai, String diaChi) {
+    public DBKhachHang(int id, String tenKhachHang, String soDienThoai, String email, Date ngaySinh, int maLoai, String diaChi) {
         this.id = id;
         this.tenKhachHang = tenKhachHang;
         this.soDienThoai = soDienThoai;
@@ -82,11 +81,11 @@ import java.util.Date;
         this.ngaySinh = ngaySinh;
     }
 
-    public String getMaLoai() {
+    public int getMaLoai() {
         return maLoai;
     }
 
-    public void setMaLoai(String maLoai) {
+    public void setMaLoai(int maLoai) {
         this.maLoai = maLoai;
     }
 

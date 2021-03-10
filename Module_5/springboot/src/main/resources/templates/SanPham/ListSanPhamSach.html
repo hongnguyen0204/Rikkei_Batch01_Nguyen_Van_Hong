@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Title</title>
     <!-- Required meta tags -->
@@ -36,50 +35,7 @@
         </ul>
     </div>
 </nav>
-<label style="font-size: 50px;text-align: center;position: relative;margin-left: 50px;">
-    List Khách Hàng
-</label>
-<br>
-<a th:href="@{/khachhang/create}">Thêm mới khách hàng</a>
-<div class="notify">
-    <div th:if="${success}">
-        <span th:text="${success}"></span>
-    </div>
-</div>
-<table class="table table-striped table-dark">
-    <thead>
-    <tr>
-        <th scope="col">Mã khách hàng</th>
-        <th scope="col">Họ tên</th>
-        <th scope="col">Số điện thoại</th>
-        <th scope="col">Email</th>
-        <th scope="col">Ngày sinh</th>
-        <th scope="col">Mã loại</th>
-        <th scope="col">Địa chỉ</th>
-        <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="item:${listkh}">
-        <td th:text="${item.id}"></td>
-        <td th:text="${item.tenKhachHang}"></td>
-        <td th:text="${item.soDienThoai}"></td>
-        <td th:text="${item.email}"></td>
-        <td th:text="${item.ngaySinh}"></td>
-        <td th:text="${item.maLoai}"></td>
-        <td th:text="${item.diaChi}"></td>
-        <td>
-            <a th:href="@{/khachhang/edit/}+${item.id}" class="btn btn-sm btn-primary">Edit</a>
-            <a th:href="@{/khachhang/delete/}+${item.id}" class="btn btn-sm btn-danger">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<div>
-    <a th:href="@{'/khachhang'(page=${listkh.number - 1})}" th:if="${listkh.hasPrevious()}">Previous</a>
-    <span th:text="${listkh.number + 1}"></span>/<span th:text="${listkh.totalPages}"></span>
-    <a th:href="@{'/khachhang'(page=${listkh.number + 1})}" th:if="${listkh.hasNext()}">Next</a>
-</div>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

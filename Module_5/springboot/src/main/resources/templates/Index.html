@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/Home.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="header">
+    <div class="topbar hidden-mobile">
+        <div class="wrapper">
+            <div class="clearfix">
+                <ul class="topnav">
+                    <li><a href="/tin-tuc/5/gioi-thieu">Giới thiệu</a></li>
+
+                    <li><a href="/lich-su-giao-dich">Lịch sử giao dịch</a></li>
+
+                    <li><a href="/kiem-tra-don-hang">Kiểm tra đơn hàng</a></li>
+                </ul>
+
+                <ul class="topprofile">
+                    <li>
+                        <a href="/dang-ky">Đăng ký</a>
+                    </li>
+                    <li>
+                        <a href="/dang-nhap">Đăng nhập</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper wrap">
+        <h1 class="logo">
+            <a href="/">NhaNam</a>
+        </h1>
+
+        <div class="cart" id="cart">
+            Giỏ hàng (<span id="cartcount">0</span>)
+        </div>
+        <div class="search">
+            <form action="/tim-kiem" method="GET" novalidate="novalidate">
+
+                <input type="text" name="q" placeholder="Tìm kiếm sách..." class="text">
+                <input type="submit" value="Tìm kiếm" class="submit">
+            </form>
+        </div>
+        <span class="openmenu-icon"></span>
+        <span class="opensearch-icon"></span>
+    </div>
+</div>
+<div id="mainnav">
+    <div class="wrapper">
+        <ul class="menu clearfix">
+            <li>
+                <a href="/sach-moi-xuat-ban">
+                    Danh mục sách
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="/chuyen-muc/1/van-hoc-viet-nam">
+                            Văn học Việt Nam
+                        </a>
+                        <ul class="submenu2">
+                            <li>
+                                <a href="/chuyen-muc/2/tieu-thuyet">
+                                    Tiểu thuyết
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/3/truyen-ngan">
+                                    Truyện ngắn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/4/tho-kich">
+                                    Thơ / Kịch
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/5/hoi-ky-phe-binh-tieu-luan">
+                                    Hồi ký / Phê Bình / Tiểu luận
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/6/tap-but-tan-van">
+                                    Tạp bút / Tản văn
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/7/van-hoc-nuoc-ngoai">
+                            Văn học Nước Ngoài
+                        </a>
+                        <ul class="submenu2">
+                            <li>
+                                <a href="/chuyen-muc/8/duong-dai">
+                                    Đương đại
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/9/lang-man">
+                                    Lãng mạn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/10/trinh-tham-kinh-di">
+                                    Trinh thám / Kinh dị
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/11/kiem-hiep">
+                                    Kiếm hiệp
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/12/kinh-dien">
+                                    Kinh điển
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/13/tho-kich">
+                                    Thơ / Kịch
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/14/hoi-ky-tieu-luan">
+                                    Hồi ký / Tiểu luận
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/15/huyen-ao-gia-tuong">
+                                    Huyền ảo / Giả tưởng
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/16/tan-van-tap-but">
+                                    Tản văn / Tạp bút
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/17/thieu-nhi">
+                            Thiếu nhi
+                        </a>
+                        <ul class="submenu2">
+                            <li>
+                                <a href="/chuyen-muc/18/tuoi-teen">
+                                    Tuổi teen
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/19/truyen-tranh">
+                                    Truyện tranh
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/20/thieu-nhi">
+                                    Thiếu nhi
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/21/thoi-su---chinh-tri">
+                            Thời sự - Chính trị
+                        </a>
+                        <ul class="submenu2">
+                            <li>
+                                <a href="/chuyen-muc/22/hoi-ky-tu-truyen">
+                                    Hồi ký / Tự truyện
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/23/the-gioi-hien-dai">
+                                    Thế giới hiện đại
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/25/khoa-hoc-tu-nhien---nhan-van">
+                            Khoa học tự nhiên - Nhân văn
+                        </a>
+                        <ul class="submenu2">
+                            <li>
+                                <a href="/chuyen-muc/26/lich-su">
+                                    Lịch sử
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/27/triet-hoc">
+                                    Triết học
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/28/tam-ly-hoc">
+                                    Tâm lý học
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/29/kinh-te">
+                                    Kinh tế
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/30/vu-tru">
+                                    Vũ trụ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chuyen-muc/31/sinh-hoc">
+                                    Sinh học
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/32/tham-khao">
+                            Tham khảo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/43/giam-gia-dac-biet">
+                            Giảm giá đặc biệt
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/44/sach-tai-ban">
+                            Sách tái bản
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/chuyen-muc/45/dat-truoc-sach">
+                            Đặt trước sách
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="/chuyen-muc/42/sach-ban-chay">Sách bán chạy</a>
+            </li>
+
+            <li>
+                <a href="/tin-tuc/14/chuong-trinh-khuyen-mai">Chương trình khuyến mãi</a>
+            </li>
+
+            <li>
+                <a href="/chuyen-muc/43/giam-gia-dac-biet">Giảm giá đặc biệt</a>
+            </li>
+
+    </div>
+</div>
+<div class="container">
+    <!--image slider start-->
+    <div class="slider">
+        <div class="slides">
+            <!--radio buttons start-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <!--radio buttons end-->
+            <!--slide images start-->
+            <div class="slide first">
+                <img src="img/3XSUDF44.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="img/OJ4M48Q3.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="img/4 sach.jpg" alt="">
+            </div>
+
+            <!--slide images end-->
+            <!--automatic navigation start-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>
+            <!--automatic navigation end-->
+        </div>
+        <!--manual navigation start-->
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+        <!--manual navigation end-->
+    </div>
+    <!--image slider end-->
+    <h1 class="pagetitle">
+        <a href="#">
+            Sách mới - Tái bản
+        </a>
+    </h1>
+    <!--list sach-->
+    <ul class="listbook clearfix">
+        <!--info -->
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Giao duc gioi tinh">
+                    <img src="img/sach 1.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+                        </a>
+                    </h1>
+
+
+                </div>
+            </div>
+
+        </li>
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Viet Nam Van Pham">
+                    <img src="img/bia_sach_20181205_1817900541.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+
+                        </a>
+                    </h1>
+
+
+                </div>
+            </div>
+
+        </li>
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Giao trinh tieng Nhat so cap">
+                    <img src="img/giao_trinh_tieng_nhat_so_cap_tap_1.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+
+                        </a>
+                    </h1>
+
+
+                </div>
+            </div>
+
+        </li>
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Viet Nam Van Pham">
+                    <img src="img/bia_sach_20181205_1817900541.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+
+                        </a>
+                    </h1>
+
+
+                </div>
+            </div>
+
+        </li>
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Nha Gia Kim">
+                    <img src="img/1.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </li>
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Marketing">
+                    <img src="img/bìa-sách-MKT-căn-bản.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </li>
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Nhan Chu">
+                    <img src="img/Hinh-Bia-Sach-NHAN-CHU.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </li>
+        <li class="book bookimage">
+            <div class="wrap">
+                <a href="#" class="image" title="Nha Gia Kim">
+                    <img src="img/1.jpg" alt="">
+                </a>
+                <div class="popup">
+                    <h1 class="name">
+                        <a href="#" title="">
+
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+    <script type="text/javascript">
+        var counter = 1;
+        setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 3){
+                counter = 1;
+            }
+        }, 5000);
+    </script>
+</div>
+
+<div class="footer">
+    <div class="footer-menu">
+        <col>
+        <li><a>Giới thiệu</a></li>
+        <li><a>Chính sách bảo mật</a></li>
+        <li><a>Chính sách vận chuyển</a></li>
+        <li><a>Hình thức thanh toán</a></li>
+        <col>
+    </div>
+    <div class="footer-menu1">
+        <col>
+        <li><a>Quy định đổi trả và huỷ đơn hàng</a></li>
+        <li><a>Hướng dẫn đặt hàng</a></li>
+        <li><a>Liên hệ</a></li>
+        <li><a>Thông báo</a></li>
+        <col>
+    </div>
+    <div class="content-info">© 2014 - Bản quyền của Công Ty Cổ Phần Văn Hoá và Truyền Thông Nhã Nam - nhanam.com.vn</div>
+    <div class="content-info">Địa chỉ: 59 Đỗ Quang, phường Trung Hoà, quận Cầu Giấy, Hà Nội</div>
+    <div class="content-info">Giấy ĐKKD số 0101603420 do Sở KH&ĐT TP Hà Nội cấp ngày 21 tháng 1 năm 2005 sửa đổi lần 5 ngày 20/3/2013</div>
+</div>
+</body>
+<style>
+
+</style>
+
+</html>

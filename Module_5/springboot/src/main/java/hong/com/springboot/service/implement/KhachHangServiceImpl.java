@@ -44,11 +44,7 @@ public class KhachHangServiceImpl implements KhachHangService {
     khachHangRepository.deleteById(theID);
   }
 
-  @Override
-  @Transactional
-  public Page<DBKhachHang> findAllKH(Pageable pageable) {
-    return khachHangRepository.findAll((org.springframework.data.domain.Pageable) pageable);
-  }
+
 
 
 }

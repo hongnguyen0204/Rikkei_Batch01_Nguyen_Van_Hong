@@ -12,5 +12,5 @@ public interface KhachHangService {
     void saveKH(DBKhachHang khachHang);
     Optional<DBKhachHang> getKhachHang(int theID) ;
     void delelteKH(int theID);
-    Page<DBKhachHang> findAllKH(Pageable pageable);
+
 }

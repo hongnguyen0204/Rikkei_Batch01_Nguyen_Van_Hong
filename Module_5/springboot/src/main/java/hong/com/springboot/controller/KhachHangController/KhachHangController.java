@@ -23,7 +23,7 @@ public class KhachHangController {
     KhachHangService khachHangService;
     @GetMapping("/khachhang")
     public ModelAndView testModel(Pageable pageable){
-        Page<DBKhachHang> listkh=khachHangService.findAllKH((java.awt.print.Pageable) pageable);
+        List<DBKhachHang> listkh=khachHangService.findAll();
         ModelAndView modelAndView=new ModelAndView("/KhachHang/list");
         modelAndView.addObject("listkh",listkh);
         return modelAndView;
@@ -56,7 +56,6 @@ public class KhachHangController {
 
     @PostMapping("/khachhang/edit")
     public String editKH(@ModelAttribute DBKhachHang dbKhachHang,RedirectAttributes redirect){
-        dbKhachHang.setId((int)(Math.random()*10000));
         khachHangService.saveKH(dbKhachHang);
         redirect.addFlashAttribute("success","Save successful");
         return "redirect:/khachhang";

@@ -75,11 +75,7 @@
     </tr>
     </tbody>
 </table>
-<div>
-    <a th:href="@{'/khachhang'(page=${listkh.number - 1})}" th:if="${listkh.hasPrevious()}">Previous</a>
-    <span th:text="${listkh.number + 1}"></span>/<span th:text="${listkh.totalPages}"></span>
-    <a th:href="@{'/khachhang'(page=${listkh.number + 1})}" th:if="${listkh.hasNext()}">Next</a>
-</div>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
